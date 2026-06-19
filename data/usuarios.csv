@@ -1,0 +1,6 @@
+id,nombre,usuario,contrasena,rol,dias_disponibles
+1,Juan Pérez,jperez,1234,empleado,7
+2,María García,mgarcia,1234,empleado,21
+3,Laura Sánchez,lsanchez,1234,empleado,7
+4,Carlos López,clopez,1234,jefatura,0
+5,Ana Rodríguez,arodriguez,1234,rrhh,0
