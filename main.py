@@ -4,10 +4,12 @@ import utils
 # ── Presentación ──────────────────────────────────────────────────────────────
 
 def sep():
+    # Imprime una línea divisoria para organizar visualmente la consola
     print('-' * 55)
 
 
 def mostrar_solicitud(s):
+    # Traduce el estado técnico y muestra los datos formateados de una solicitud
     estado = utils.ESTADOS.get(s['estado'], s['estado'])
     print(f"  [{s['id']}] {s['empleado_nombre']:<20} "
           f"{s['fecha_inicio']} → {s['fecha_fin']}  "
@@ -17,6 +19,7 @@ def mostrar_solicitud(s):
 
 
 def pedir_solicitud_de_lista(solicitudes):
+    # Pide un ID por consola y busca esa solicitud dentro de la lista provista
     sol_id = input('ID a procesar (0 para volver): ').strip()
     if sol_id == '0':
         return None
@@ -29,6 +32,7 @@ def pedir_solicitud_de_lista(solicitudes):
 # ── Login ─────────────────────────────────────────────────────────────────────
 
 def flujo_login():
+    # Gestiona el acceso controlando el límite de intentos configurado
     for intento in range(1, utils.MAX_INTENTOS + 1):
         sep()
         print('      GESTOR DE VACACIONES')
@@ -49,6 +53,7 @@ def flujo_login():
 # ── Menú Empleado ─────────────────────────────────────────────────────────────
 
 def menu_empleado(usuario):
+    # Muestra las opciones del empleado y recarga sus datos en cada ciclo
     while True:
         u = utils.obtener_usuario(usuario['id'])
         sep()
@@ -73,6 +78,7 @@ def menu_empleado(usuario):
 
 
 def flujo_solicitar_vacaciones(usuario):
+    # Pide fechas, las valida con las reglas de negocio y registra la solicitud
     while True:
         sep()
         print('CONDICIONES DE SOLICITUD:')
@@ -99,6 +105,7 @@ def flujo_solicitar_vacaciones(usuario):
 
 
 def flujo_estado_solicitudes(usuario):
+    # Obtiene y lista en pantalla el historial de solicitudes del empleado logueado
     solicitudes = utils.obtener_solicitudes_por_empleado(usuario['id'])
     if not solicitudes:
         print('\nNo tenés solicitudes registradas.')
@@ -112,6 +119,7 @@ def flujo_estado_solicitudes(usuario):
 # ── Menú Jefatura ─────────────────────────────────────────────────────────────
 
 def menu_jefatura(usuario):
+    # Despliega el panel de control exclusivo para los usuarios con rol Jefatura
     while True:
         sep()
         print(f'Bienvenido, {usuario["nombre"]}  (Jefatura)')
@@ -129,6 +137,7 @@ def menu_jefatura(usuario):
 
 
 def flujo_preaprobar():
+    # Permite al jefe listar, seleccionar, preaprobar o rechazar solicitudes iniciales
     pendientes = utils.obtener_solicitudes_por_estado('PENDIENTE_PREAPROBACION')
     if not pendientes:
         print('\nNo hay solicitudes pendientes de preaprobación.')
@@ -154,6 +163,7 @@ def flujo_preaprobar():
 # ── Menú RRHH ─────────────────────────────────────────────────────────────────
 
 def menu_rrhh(usuario):
+    # Despliega el panel de control exclusivo para los usuarios con rol RRHH
     while True:
         sep()
         print(f'Bienvenido, {usuario["nombre"]}  (RRHH)')
@@ -171,6 +181,7 @@ def menu_rrhh(usuario):
 
 
 def flujo_aprobar():
+    # Permite a RRHH auditar, otorgar la aprobación final o rechazar solicitudes
     pendientes = utils.obtener_solicitudes_por_estado('PENDIENTE_APROBACION')
     if not pendientes:
         print('\nNo hay solicitudes pendientes de aprobación.')
@@ -196,6 +207,7 @@ def flujo_aprobar():
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
+    # Inicializa el flujo solicitando el login y deriva el control según el rol
     usuario = flujo_login()
     if not usuario:
         return

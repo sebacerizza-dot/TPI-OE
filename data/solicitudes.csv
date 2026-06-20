@@ -1,4 +1,5 @@
 id,empleado_id,empleado_nombre,fecha_inicio,fecha_fin,dias,estado,fecha_solicitud,comentario
 1,1,Juan Pérez,2026-06-15,2026-06-21,7,APROBADA,2026-06-19,
-2,1,Juan Pérez,2026-06-22,2026-06-28,7,RECHAZADA,2026-06-19,Solapamiento con un compañero
-3,1,Juan Pérez,2026-06-29,2026-07-05,7,PENDIENTE_APROBACION,2026-06-19,
+2,2,María García,2026-06-22,2026-06-28,7,APROBADA,2026-06-19,
+3,1,Juan Pérez,2026-06-22,2026-06-28,7,RECHAZADA,2026-06-19,Solapamiento con un compañero
+4,1,Juan Pérez,2026-06-29,2026-07-05,7,PENDIENTE_APROBACION,2026-06-19,
