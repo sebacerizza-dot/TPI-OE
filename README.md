@@ -95,3 +95,31 @@ PENDIENTE_APROBACION  ←→  RECHAZADA
 
 - **`utils.py`** concentra toda la lógica de negocio y el acceso a los CSVs. No contiene ningún `print` ni `input`.
 - **`main.py`** concentra toda la interacción con el usuario. No conoce el formato de los CSVs ni las reglas de negocio.
+
+  ## Migración a Interfaz Web (Streamlit)
+
+Si deseas ejecutar la versión del sistema con interfaz gráfica web en lugar de la consola, sigue estos pasos desde **Visual Studio Code**:
+
+### 1. Requisitos previos
+Asegúrate de tener Python instalado y abre la carpeta raíz del proyecto (`TPI-OE/`) en VS Code.
+
+### 2. Abrir la Terminal en VS Code
+1. Ve al menú superior de VS Code.
+2. Selecciona **Terminal** > **New Terminal** (o presiona `Ctrl + Ñ` / `Ctrl + \``).
+
+### 3. Instalar Streamlit
+En la terminal que se acaba de abrir, escribe el siguiente comando y presiona `Enter` para instalar la librería:
+
+```bash
+pip install streamlit
+```
+
+### 4. Ejecutar la aplicación web
+Una vez finalizada la instalación, ejecuta el archivo `app.py` con el siguiente comando:
+
+```bash
+streamlit run app.py
+```
+
+*Nota: Este comando abrirá automáticamente una pestaña en tu navegador web predeterminado con la interfaz del Gestor de Vacaciones.*
+
